@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockscreate</title>
+    <!-- Google Fonts for pixelated text -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loading-container">
+            <div class="game-logo">BLOCKS<span class="logo-highlight">CREATE</span></div>
+            <h1>Loading...</h1>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Screen (initially hidden) -->
+    <div id="startScreen" style="display: none;">
+        <h1>1.1 Craft a WORLD</h1>
+        
+        <div class="world-creation">
+            <h2>Create New World</h2>
+            <div class="input-group">
+                <input type="text" id="worldNameInput" placeholder="Enter world name" maxlength="20">
+            </div>
+            <div class="game-modes">
+                <div class="mode-column">
+                    <h3>Normal</h3>
+                    <button class="world-select-btn" data-mode="normal" data-biome="forest">Forest</button>
+                    <button class="world-select-btn" data-mode="normal" data-biome="desert">Desert</button>
+                    <button class="world-select-btn" data-mode="normal" data-biome="tundra">Tundra</button>
+                    <button class="world-select-btn" data-mode="normal" data-biome="random">Random</button>
+                </div>
+                <div class="mode-column">
+                    <h3>Hardcore</h3>
+                    <button class="world-select-btn" data-mode="hardcore" data-biome="forest">Forest</button>
+                    <button class="world-select-btn" data-mode="hardcore" data-biome="desert">Desert</button>
+                    <button class="world-select-btn" data-mode="hardcore" data-biome="tundra">Tundra</button>
+                    <button class="world-select-btn" data-mode="hardcore" data-biome="random">Random</button>
+                </div>
+            </div>
+            <button id="createWorldButton" disabled>Create</button>
+        </div>
+        
+        <h2>Saved Worlds</h2>
+        <div id="savedGames"></div>
+    </div>
+    
+    <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
+    <div id="inventory" style="display: none;"></div>
+    <div id="toolStatus" style="display: none;"></div>
+    <div id="message" style="display: none;"></div>
+    <div id="craftingMenu" style="display: none;"></div>
+    
+    <!-- Health Bar -->
+    <div id="healthBarContainer" style="display: none;">
+        <div id="healthBarLabel">Health:</div>
+        <div id="healthBarOuter">
+            <div id="healthBarInner"></div>
+        </div>
+    </div>
+    
+    <!-- New Detailed Inventory UI -->
+    <div id="detailedInventoryUI" style="display: none;">
+        <div class="inventory-header">
+            <h2>Inventory</h2>
+            <span class="close-btn" onclick="window.toggleDetailedInventory(false)">×</span>
+        </div>
+        <div class="inventory-content">
+            <div class="inventory-section" id="toolsSection">
+                <h3>Tools</h3>
+                <div class="items-grid" id="toolsGrid"></div>
+            </div>
+            <div class="inventory-section" id="blocksSection">
+                <h3>Blocks</h3>
+                <div class="items-grid" id="blocksGrid"></div>
+            </div>
+            <div class="inventory-section" id="resourcesSection">
+                <h3>Resources & Items</h3>
+                <div class="items-grid" id="resourcesGrid"></div>
+            </div>
+        </div>
+        <div class="inventory-footer">
+            <p>Press 'I' to close inventory</p>
+        </div>
+    </div>
+    
+    <!-- Exit Menu Overlay -->
+    <div id="exitMenuOverlay" style="display: none;">
+        <div class="exit-menu-content">
+            <h3>Menu</h3>
+            <button id="continueButton" data-description="Continue playing the current game">Continue</button>
+            <button id="saveGameButton" data-description="Save your current game progress">Save Game</button>
+            <button id="goToPage1Button" data-description="Return to the main menu">Main Menu</button>
+            <button id="inventoryButton" data-description="Open your inventory to view and manage items">Inventory</button>
+            <button id="workbenchButton" data-description="Open the crafting table to create new items">Workbench</button>
+            <button id="settingsButton" data-description="Adjust game settings">Settings</button>
+            <button id="controlsButton" data-description="View game controls and keybindings">Controls</button>
+            <button id="helpButton" data-description="View gameplay tips and instructions">Help</button>
+            <button id="exitGameButton" data-description="Exit the game completely">Exit Game</button>
+        </div>
+        <div id="buttonDescription" class="button-description"></div>
+    </div>
+    
+    <div id="gameOverScreen" style="display: none;">
+        <h1>Game Over</h1>
+        <button id="restartButton">Restart</button>
+    </div>
+    <button id="exitButton" style="display: none;">Exit to Menu</button>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
