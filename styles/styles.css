@@ -1,0 +1,850 @@
+/* Loading screen styles */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333333; /* Changed to dark gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-container {
+    width: 80%;
+    max-width: 400px;
+    background-color: #000000; /* Changed from red to black */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Changed shadow color */
+}
+
+.loading-container h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 2px 2px #333333; /* Changed shadow color */
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 30px;
+    background-color: #333333; /* Changed from dark red to dark gray */
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #ffffff;
+    transition: width 0.1s linear;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Press Start 2P', 'VT323', 'Minecraft', 'Courier New', monospace;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    /* Pixelated text rendering */
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    image-rendering: pixelated;
+}
+
+/* Add @font-face for optional custom pixel font */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://fonts.cdnfonts.com/css/minecraft') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Start Screen - SMALLER VERSION */
+#startScreen {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    max-width: 300px;
+    transform: scale(0.8);
+}
+
+#startScreen h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px #000;
+}
+
+#startScreen h2 {
+    font-size: 14px;
+    margin: 10px 0 5px;
+    text-shadow: 1px 1px #000;
+}
+
+#startScreen button {
+    font-size: 12px;
+    padding: 4px 8px;
+    margin: 3px;
+    background-color: #777;
+    border: 1px solid #555;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#startScreen button:hover {
+    background-color: #999;
+}
+
+/* Two-column layout for game modes */
+.game-modes {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.mode-column {
+    flex: 1;
+    padding: 0 5px;
+}
+
+.mode-column button {
+    display: block;
+    width: 90%;
+    margin: 3px auto;
+}
+
+#savedGames {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+#savedGames div {
+    margin: 4px 0;
+}
+
+#savedGames button {
+    font-size: 10px;
+    padding: 2px 4px;
+}
+
+.game-over-message {
+    font-size: 10px;
+    color: #ff6666;
+    margin-top: 5px;
+}
+
+/* Game Canvas */
+#gameCanvas {
+    border: 4px solid #555;
+    background-color: #000;
+}
+
+/* Health Bar Styles */
+#healthBarContainer {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 12px;
+    border: 2px solid #555;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 150px;
+}
+
+#healthBarLabel {
+    font-size: 12px;
+    text-shadow: 1px 1px #000;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+#healthBarOuter {
+    width: 100%;
+    height: 15px;
+    background-color: #333;
+    border: 2px solid #555;
+    padding: 2px;
+}
+
+#healthBarInner {
+    height: 100%;
+    width: 100%;
+    background-color: #ff0000;
+    transition: width 0.3s;
+}
+
+/* Health bar colors based on health level */
+.health-high {
+    background-color: #00ff00 !important;
+}
+
+.health-medium {
+    background-color: #ffff00 !important;
+}
+
+.health-low {
+    background-color: #ff0000 !important;
+}
+
+/* Inventory Display */
+#inventory {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border: 2px solid #555;
+    font-size: 14px;
+    max-width: 400px;
+    text-shadow: 1px 1px #000;
+    display: inline-block;
+    white-space: pre;
+    font-family: 'Courier New', monospace;
+}
+
+#inventory span {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#inventory span:hover {
+    color: #ff0;
+}
+
+#inventory .selected {
+    color: #0f0;
+    font-weight: bold;
+}
+
+/* Tool Status */
+#toolStatus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border: 2px solid #555;
+    font-size: 16px;
+    text-shadow: 1px 1px #000;
+}
+
+/* Message Display */
+#message {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border: 2px solid #555;
+    font-size: 18px;
+    text-shadow: 1px 1px #000;
+    pointer-events: none;
+    z-index: 100;
+    max-width: 80%;
+    text-align: center;
+}
+
+/* Crafting Menu */
+#craftingMenu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border: 4px solid #555;
+    max-width: 500px;
+    text-align: center;
+}
+
+#craftingMenu h2, #craftingMenu h3 {
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #000;
+}
+
+#craftingMenu .recipe {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #444;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#craftingMenu .recipe:hover {
+    background-color: #666;
+}
+
+#craftingMenu .canCraft {
+    background-color: #2a2;
+}
+
+#craftingMenu .canCraft:hover {
+    background-color: #4c4;
+}
+
+#craftingMenu button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #777;
+    border: 2px solid #555;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#craftingMenu button:hover {
+    background-color: #999;
+}
+
+/* Game Over Screen */
+#gameOverScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border: 4px solid #555;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#gameOverScreen h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px #000;
+}
+
+#gameOverScreen button {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #777;
+    border: 2px solid #555;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#gameOverScreen button:hover {
+    background-color: #999;
+}
+
+/* Exit Button */
+#exitButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #777;
+    border: 2px solid #555;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#exitButton:hover {
+    background-color: #999;
+}
+
+/* Exit Menu Overlay */
+#exitMenuOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px; /* Fixed width for side panel */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 3px solid #555;
+}
+
+.exit-menu-content {
+    width: 90%;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.exit-menu-content button {
+    padding: 10px;
+    background-color: #444;
+    border: 2px solid #666;
+    color: white;
+    font-family: 'Press Start 2P', 'VT323', 'Minecraft', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    border-radius: 4px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.exit-menu-content button:hover {
+    background-color: #666;
+    border-color: #888;
+    transform: translateX(-5px);
+}
+
+.exit-menu-content button::after {
+    content: ">";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.exit-menu-content button:hover::after {
+    opacity: 1;
+}
+
+.button-description {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    padding: 10px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    max-width: 200px;
+    font-size: 10px;
+    display: none;
+}
+
+/* Keep the specific button color styles */
+#continueButton {
+    background-color: #2a6e2a;
+    border-color: #3c9c3c;
+}
+
+#continueButton:hover {
+    background-color: #3c9c3c;
+    border-color: #4dbd4d;
+}
+
+#goToPage1Button {
+    background-color: #4a5fd2;
+    border-color: #6a7ff2;
+}
+
+#goToPage1Button:hover {
+    background-color: #6a7ff2;
+    border-color: #8a9ff2;
+}
+
+#exitGameButton {
+    background-color: #8b3030;
+    border-color: #ab5050;
+}
+
+#exitGameButton:hover {
+    background-color: #ab5050;
+    border-color: #cb7070;
+}
+
+/* Detailed Inventory UI */
+#detailedInventoryUI {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 500px;
+    max-height: 80vh;
+    border: 4px solid #555;
+    font-family: 'Press Start 2P', 'VT323', 'Minecraft', monospace;
+    color: #fff;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.inventory-header {
+    background-color: #444;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #555;
+}
+
+.inventory-header h2 {
+    margin: 0;
+    font-size: 18px;
+    text-shadow: 1px 1px #000;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.inventory-content {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(80vh - 100px);
+}
+
+.inventory-section {
+    margin-bottom: 20px;
+}
+
+.inventory-section h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.inventory-item {
+    background-color: #333;
+    border: 2px solid #666;
+    padding: 5px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.1s;
+}
+
+.inventory-item:hover {
+    border-color: #999;
+    transform: scale(1.05);
+}
+
+.inventory-item.selected {
+    border-color: #0f0;
+    background-color: #1a3a1a;
+}
+
+.item-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 3px;
+}
+
+.item-name {
+    font-size: 8px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.item-count {
+    position: absolute;
+    bottom: 0;
+    right: 2px;
+    font-size: 10px;
+    color: #0f0;
+}
+
+.inventory-footer {
+    background-color: #333;
+    padding: 8px;
+    text-align: center;
+    border-top: 2px solid #555;
+}
+
+.inventory-footer p {
+    margin: 0;
+    font-size: 10px;
+    color: #888;
+}
+
+/* Item color variations */
+.item-block {
+    background-color: #2a3e2a;
+    position: relative;
+}
+
+.item-tool {
+    background-color: #3a3a2a;
+}
+
+.item-resource {
+    background-color: #2a2a3e;
+}
+
+/* Block textures for inventory items */
+.block-texture {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+.texture-dirt { background-image: url('../assets/dirt.jpg'); }
+.texture-grass { background-image: url('../assets/grass.jpg'); }
+.texture-wood { background-image: url('../assets/wood.jpg'); }
+.texture-spruce-wood { background-image: url('../assets/wood.jpg'); }
+.texture-leaves { background-image: url('../assets/leaves.png'); }
+.texture-spruce-leaves { background-image: url('../assets/leaves.png'); }
+.texture-cobblestone { background-image: url('../assets/cobblestone.jpg'); }
+.texture-stone { background-color: #808080; }
+.texture-brick { background-image: url('../assets/tegelstone.jpg'); }
+.texture-sand { background-color: #F4A460; }
+.texture-sandstone { background-color: #D2B48C; }
+.texture-coal-ore { background-color: #808080; position: relative; }
+.texture-coal-ore::after { content: '•'; position: absolute; color: #333333; font-size: 24px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-iron-ore { background-color: #808080; position: relative; }
+.texture-iron-ore::after { content: '•'; position: absolute; color: #D87F33; font-size: 24px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-gold-ore { background-color: #808080; position: relative; }
+.texture-gold-ore::after { content: '•'; position: absolute; color: #FFD700; font-size: 24px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-diamond-ore { background-color: #808080; position: relative; }
+.texture-diamond-ore::after { content: '•'; position: absolute; color: #00FFFF; font-size: 24px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-crafting-table { background-color: #8B4513; position: relative; }
+.texture-crafting-table::after { content: '+'; position: absolute; color: #FFD700; font-size: 18px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-snow { background-color: #F0F8FF; }
+.texture-ice { background-color: #ADD8E6; }
+.texture-glass { background-color: rgba(200, 200, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.7); }
+.texture-mossy-stone { background-color: #808080; position: relative; }
+.texture-mossy-stone::after { content: '~'; position: absolute; color: #228B22; font-size: 16px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.texture-rock { background-color: #666666; }
+.texture-woodendoor { background-image: url('../assets/woodendoor.png'); }
+.texture-bed { background-image: url('../assets/bed.png'); }
+
+/* Create procedural textures for blocks */
+.block-texture {
+    width: 24px;
+    height: 24px;
+    background-color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.texture-grass { background-color: #1a5e1a; }
+.texture-dirt { background-color: #8B4513; }
+.texture-stone { background-color: #808080; }
+.texture-wood { background-color: #8B4513; }
+.texture-leaves { background-color: #006400; }
+.texture-sand { background-color: #F4A460; }
+
+/* World Creation styles */
+.world-creation {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.world-creation h2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #aaffaa;
+}
+
+.world-creation h3 {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.input-group {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#worldNameInput {
+    font-family: 'Press Start 2P', 'VT323', monospace;
+    font-size: 12px;
+    padding: 8px;
+    width: 80%;
+    background-color: #333;
+    border: 2px solid #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#worldNameInput:focus {
+    outline: none;
+    border-color: #888;
+    background-color: #444;
+}
+
+#createWorldButton {
+    background-color: #4a5fd2;
+    border: 2px solid #6a7ff2;
+    color: white;
+    padding: 8px 15px;
+    font-family: 'Press Start 2P', 'VT323', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 0;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+#createWorldButton:hover:not([disabled]) {
+    background-color: #6a7ff2;
+    transform: scale(1.05);
+}
+
+#createWorldButton:active:not([disabled]) {
+    transform: scale(0.95);
+}
+
+#createWorldButton[disabled] {
+    background-color: #555;
+    border-color: #777;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.world-select-btn {
+    font-size: 11px !important;
+}
+
+.world-select-btn.selected {
+    background-color: #4a5fd2 !important;
+    border-color: #6a7ff2 !important;
+}
+
+/* Saved worlds styling */
+.saved-world {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #555;
+}
+
+.world-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 60%;
+}
+
+.world-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.saved-world button {
+    padding: 3px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.saved-world button:hover {
+    transform: scale(1.05);
+}
+
+.saved-world button:active {
+    transform: scale(0.95);
+}
+
+/* Load button */
+.saved-world button:not(.delete-btn) {
+    background-color: #4a5fd2;
+    color: white;
+    border: 1px solid #6a7ff2;
+}
+
+.saved-world button:not(.delete-btn):hover {
+    background-color: #6a7ff2;
+}
+
+/* Delete button */
+.saved-world .delete-btn {
+    background-color: #8b3030;
+    color: white;
+    border: 1px solid #ab5050;
+}
+
+.saved-world .delete-btn:hover {
+    background-color: #ab5050;
+}
+
+.no-worlds {
+    font-style: italic;
+    color: #888;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Game logo styles */
+.game-logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #000000;
+    text-shadow: 
+        2px 2px 0 #555555,
+        -2px 2px 0 #555555,
+        2px -2px 0 #555555,
+        -2px -2px 0 #555555;
+    text-align: center;
+    transform: perspective(500px) rotateX(10deg);
+}
+
+.logo-highlight {
+    color: #555555;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px 2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px -2px 0 #000000;
+}
