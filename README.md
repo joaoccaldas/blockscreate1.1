@@ -1,22 +1,7 @@
-# BlocksCreate 1.1
+# blockscreate1.1 — deprecated
 
-Enhanced version of BlocksCreate with improved crafting, tool mechanics, and world management.
+> ⚠️ **Deprecated.** An earlier BlocksCreate build (inventory, crafting, saving).
+> The canonical game lives at **[`blockscreate`](https://github.com/joaoccaldas/blockscreate)**
+> — play it at https://joaoccaldas.github.io/blockscreate/
 
-## Features
-
-- World saving and loading
-- Tool system (pickaxe, axe, shovel)
-- Expanded crafting recipes
-- Improved block physics
-
-## Getting Started
-
-Open `index.html` in a browser.
-
-## Author
-
-Joao Caldas
-
-## License
-
-MIT
+Kept for history only. Do not build on this version.
